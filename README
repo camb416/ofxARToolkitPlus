@@ -9,7 +9,8 @@ ofxARToolkitPlus
 
 
 To Do:
--Take the LibDC stuff out of this repo
+- Take the LibDC stuff out of this repo
+- Make the old example work (add a flag for custom marker detection, or put it in the ARTK+ config parser?)
 
 
 A more complete addon for ARToolkitPlus based on earlier versions posted in this thread:
