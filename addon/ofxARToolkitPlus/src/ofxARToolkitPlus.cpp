@@ -39,8 +39,8 @@ void ofxARToolkitPlus::setup(int w, int h, string camParamFile, string multiFile
 	
 	width = w;
 	height = h;	
-	useBCH = true;
-	markerWidth = 40.0;
+	useBCH = false;
+	markerWidth = 80.0;
 	halfMarkerWidth = markerWidth/2;
 	c[0] = 0;
 	c[1] = 0;
@@ -52,7 +52,7 @@ void ofxARToolkitPlus::setup(int w, int h, string camParamFile, string multiFile
     //  - samples at a maximum of 6x6
     //  - can load a maximum of 32 patterns
     //  - can detect a maximum of 32 patterns in one image
-	tracker = new ARToolKitPlus::TrackerMultiMarkerImpl<6,6,6,32,32>(width,height);
+	tracker = new ARToolKitPlus::TrackerMultiMarkerImpl<16,16,16,32,32>(width,height);
 	
 	const char* description = tracker->getDescription();
 	printf("ARToolKitPlus compile-time information:\n%s\n\n", description);
@@ -97,10 +97,14 @@ void ofxARToolkitPlus::setup(int w, int h, string camParamFile, string multiFile
 	
     // switch to simple ID based markers
     // use the tool in tools/IdPatGen to generate markers
-    tracker->setMarkerMode(useBCH ? ARToolKitPlus::MARKER_ID_BCH : ARToolKitPlus::MARKER_ID_SIMPLE);
+    // tracker->setMarkerMode(useBCH ? ARToolKitPlus::MARKER_ID_BCH : ARToolKitPlus::MARKER_ID_SIMPLE);
+    tracker->setMarkerMode(ARToolKitPlus::MARKER_TEMPLATE);
 	//tracker->setMarkerMode(ARToolKitPlus::MARKER_ID_SIMPLE);
+    
+    // tracker->arLoadPatt("../../../data/patt.hiro");
+	//tracker->addPattern("../../../data/patt.hiro");
 	
-	//tracker->activateVignettingCompensation(true);
+    //tracker->activateVignettingCompensation(true);
 	
 	tracker->setUseDetectLite(false);
 	
