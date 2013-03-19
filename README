@@ -2,6 +2,16 @@
 ofxARToolkitPlus
 ---------------------------------
 
+@camb416:
+- Have implemented custom marker (.PAT) detection
+- LibDc1394 for PointGrey cameras (why?)
+- compiling against OF v0074
+
+
+To Do:
+-Take the LibDC stuff out of this repo
+
+
 A more complete addon for ARToolkitPlus based on earlier versions posted in this thread:
 http://www.openframeworks.cc/forum/viewtopic.php?f=10&t=743
 
